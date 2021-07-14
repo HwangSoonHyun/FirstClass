@@ -9,18 +9,30 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+locale_env = open(os.path.join(BASE_DIR,'.env'))
+
+env_list = dict()
+while True:
+    line = locale_env.readline()
+    if not line:
+        break
+    line = line.replace('\n','')
+    start = line.find('=')
+    key = line[:start]
+    value = line[start+1:]
+    env_list[key] = value
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=l6nk%pr!zr=r)ff6f#^ifd_5apuv@wn0^rq=+hwuhm8uwymaz'
+SECRET_KEY = env_list['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

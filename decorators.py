@@ -1,10 +1,10 @@
 
 def decorator(func):
-    def decoratied():
+    def decorated():
         print('함수 시작')
         func()
         print('함수 끝')
-    return decoratied
+    return decorated
 
 @decorator
 def hello_world():

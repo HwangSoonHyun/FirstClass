@@ -8,7 +8,7 @@
             <h4>Update Info</h4>
         </div>
         <div>
-            <form action="{% url 'articleapp:delete' pk=target_user.pk %}" method="post">
+            <form action="{% url 'accountapp:delete' pk=target_user.pk %}" method="post">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <div class="m-5">

@@ -2,13 +2,11 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo 'reset_1'
+RUN echo 'reset_2'
 
 RUN git clone https://github.com/HwangSoonHyun/FirstClass.git
 
 WORKDIR /home/FirstClass/
-
-RUN echo "SECRET_KEY=django-insecure-=l6nk%pr!zr=r)ff6f#^ifd_5apuv@wn0^rq=+hwuhm8uwymaz" > .env
 
 RUN pip install -r requirements.txt
 
